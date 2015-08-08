@@ -8,8 +8,11 @@ hpc <- read_csv2("household_power_consumption.txt", col_names=TRUE, col_types="c
 
 hpc_sub <- filter(hpc, as.Date(hpc$Date, "%d/%m/%Y") == "2007-02-01" | as.Date(hpc$Date, "%d/%m/%Y") == "2007-02-02")
 
-par(mfrow = c(1,1), mar = c(4,4,4,2))
-hist(hpc$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
+par(mar = c(5,5,4,2))
+hist(hpc_sub$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
+
+dev.copy(png, file = "plot1.png")
+dev.off()
 
 
 
